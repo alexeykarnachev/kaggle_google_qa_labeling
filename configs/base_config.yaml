@@ -1,27 +1,24 @@
-dataset_path: /home/error/Code/kaggle_google_qa_labeling/data/CrossDataset_2020_01_27__16_21_54__968
+dataset_path: /absolute/path/to/cross_dataset/directory
 loss: bce_losses.BCESoftLossFromLogits
-model: cross_encoder_model.CrossEncoderModel
+model: bi_encoder_model.BiEncoderModel
 seed: 228
 fit_settings:
-  batch_size: 8
-  accum_steps: 1
-  max_len: 512
+  batch_size: 1
+  accum_steps: 8
+  max_len: 450
   max_grad_norm: 5
   warmup_steps: 50
   eval_steps:
   epochs: 5
   optimizer: adamw
   pooling: cls
-  clf_hid_dim: 300
-  dpt: 0.5
-  freeze_encoder_on_plateau_patience: 3
+  clf_hid_dim:
+  dpt: 0.3
+  freeze_encoder_on_plateau_patience: 20
 groups_lr:
-  head: 1.0e-3
-  encoder_12: 1.0e-4
-  encoder_11: 1.0e-5
-  default: 1.0e-5
+  default: 2.5e-05
 backbone:
-  model: transformers.BertModel
-  pretrained: bert-base-uncased
+  model: transformers.RobertaModel
+  pretrained: roberta-large
 device: cuda
 save_fold_models: true
