@@ -18,7 +18,7 @@ setup(
     packages=find_packages(exclude=['test', 'test.*']),
     install_requires=[
         "torch==1.3.1",
-        "transformers==2.4.1",
+        "transformers==4.30.0",
         "scikit-learn==0.21.3",
         "pandas==0.25.1",
         "future==0.17.1",
